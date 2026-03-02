@@ -9,6 +9,7 @@ function ProjectDetails() {
   const [tasks, setTasks] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
+  const [selectedTask, setSelectedTask] = useState(null);
 
   const handleStatusChange = async (taskId, newStatus) => {
     try {
@@ -77,20 +78,76 @@ function ProjectDetails() {
           status="to-do"
           tasks={tasks}
           onStatusChange={handleStatusChange}
+          onTaskClick={setSelectedTask}
         />
         <KanbanColumn
           title="In Progress"
           status="in-progress"
           tasks={tasks}
           onStatusChange={handleStatusChange}
+          onTaskClick={setSelectedTask}
         />
         <KanbanColumn
           title="Done"
           status="done"
           tasks={tasks}
           onStatusChange={handleStatusChange}
+          onTaskClick={setSelectedTask}
         />
       </div>
+
+      {/* TASK DETAIL MODAL */}
+{selectedTask && (
+  <div className="fixed inset-0 bg-black/70 flex items-center justify-center z-50">
+    
+    <div className="bg-slate-900 border border-white/10 rounded-2xl w-[500px] p-6 relative">
+
+      {/* Close Button */}
+      <button
+        onClick={() => setSelectedTask(null)}
+        className="absolute top-3 right-4 text-gray-400 hover:text-white"
+      >
+        ✕
+      </button>
+
+      <h2 className="text-2xl font-bold mb-4">
+        {selectedTask.title}
+      </h2>
+
+      <div className="space-y-3 text-sm text-gray-300">
+
+        <div>
+          <span className="text-gray-400">Description:</span>
+          <p>{selectedTask.description || "No description"}</p>
+        </div>
+
+        <div>
+          <span className="text-gray-400">Priority:</span>
+          <p>{selectedTask.priority}</p>
+        </div>
+
+        <div>
+          <span className="text-gray-400">Status:</span>
+          <p>{selectedTask.status}</p>
+        </div>
+
+        <div>
+          <span className="text-gray-400">Assigned To:</span>
+          <p>{selectedTask.assignedTo?.name || "Unassigned"}</p>
+        </div>
+
+        <div>
+          <span className="text-gray-400">Created:</span>
+          <p>
+            {new Date(selectedTask.createdAt).toLocaleString()}
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+)}
     </div>
   );
 }

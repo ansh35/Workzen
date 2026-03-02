@@ -4,7 +4,7 @@ import { useAuth } from "../context/AuthContext";
 const ProtectedRoute = ({ roles }) => {
   const { user, loading } = useAuth();
 
-  // ⛔ WAIT until auth is restored
+  //  WAIT until auth is restored
   if (loading) {
     return (
       <div className="h-screen flex items-center justify-center">

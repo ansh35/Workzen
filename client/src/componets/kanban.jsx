@@ -1,6 +1,12 @@
 import TaskCard from "./Card.jsx";
 
-function KanbanColumn({ title, status, tasks, onStatusChange }) {
+function KanbanColumn({
+  title,
+  status,
+  tasks,
+  onStatusChange,
+  onTaskClick,   // ✅ NEW PROP
+}) {
   const filteredTasks = tasks.filter(
     (task) => task.status === status
   );
@@ -36,6 +42,7 @@ function KanbanColumn({ title, status, tasks, onStatusChange }) {
             key={task._id}
             task={task}
             onStatusChange={onStatusChange}
+            onClick={() => onTaskClick(task)}  // ✅ PASS CLICK
           />
         ))}
       </div>

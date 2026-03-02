@@ -1,6 +1,7 @@
-function TaskCard({ task, onStatusChange }) {
+function TaskCard({ task, onStatusChange ,onClick}){
   return (
     <div
+      onClick={onClick} // Add onClick handler to the card
       className="
         bg-black/50
         border border-white/10
@@ -19,6 +20,7 @@ function TaskCard({ task, onStatusChange }) {
       {/* STATUS DROPDOWN */}
       <select
         value={task.status}
+        onClick={(e) => e.stopPropagation()}  // Add onClick handler to the dropdown
         onChange={(e) =>
           onStatusChange(task._id, e.target.value)
         }
