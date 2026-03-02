@@ -17,8 +17,8 @@ function AdminDashboard() {
       {/* Cards */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl">
         
-        {/* ADD TASK */}
-        <div className="bg-white/5 border border-white/10 rounded-xl p-6 hover:border-blue-500/40 hover:shadow-lg hover:shadow-blue-500/10 transition">
+        {/* ADD TASK - BLUE */}
+        <div className="bg-white/5 border border-white/10 rounded-xl p-6 transition-all duration-300 hover:border-blue-500/50 hover:shadow-[0_0_40px_rgba(59,130,246,0.25)] hover:-translate-y-1">
           <h2 className="text-lg font-semibold mb-1">Add Task</h2>
           <p className="text-sm text-gray-400 mb-5">
             Create and assign tasks to team members
@@ -32,33 +32,33 @@ function AdminDashboard() {
           </button>
         </div>
 
-        {/* ADD PROJECT (NEXT STEP) */}
-        <div className="bg-white/5 border border-white/10 rounded-xl p-6 opacity-70">
+        {/* ADD PROJECT - PURPLE */}
+        <div className="bg-white/5 border border-white/10 rounded-xl p-6 transition-all duration-300 hover:border-purple-500/50 hover:shadow-[0_0_40px_rgba(168,85,247,0.25)] hover:-translate-y-1">
           <h2 className="text-lg font-semibold mb-1">Add Project</h2>
           <p className="text-sm text-gray-400 mb-5">
             Create projects for your team
           </p>
 
           <button
-            disabled
-            className="bg-gray-700 px-4 py-2 rounded-lg text-sm cursor-not-allowed"
+            onClick={() => navigate("/admin/add-project")}
+            className="bg-purple-600 hover:bg-purple-700 transition px-4 py-2 rounded-lg text-sm font-medium"
           >
-            Coming Soon
+            Go to Add Project →
           </button>
         </div>
 
-        {/* USERS */}
-        <div className="bg-white/5 border border-white/10 rounded-xl p-6 opacity-70">
+        {/* USERS - GREEN */}
+        <div className="bg-white/5 border border-white/10 rounded-xl p-6 transition-all duration-300 hover:border-emerald-500/50 hover:shadow-[0_0_40px_rgba(16,185,129,0.25)] hover:-translate-y-1">
           <h2 className="text-lg font-semibold mb-1">Users</h2>
           <p className="text-sm text-gray-400 mb-5">
             Manage team members
           </p>
 
           <button
-            disabled
-            className="bg-gray-700 px-4 py-2 rounded-lg text-sm cursor-not-allowed"
+            onClick={() => navigate("/admin/users")}
+            className="bg-emerald-600 hover:bg-emerald-700 transition px-4 py-2 rounded-lg text-sm font-medium"
           >
-            Coming Soon
+            Manage Users →
           </button>
         </div>
 

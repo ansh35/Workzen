@@ -10,6 +10,8 @@ import ProjectDetails from "./pages/projectdetail.jsx";
 import AddTask from "./pages/ADDTASK.jsx";
 import ProtectedRoute from "./componets/ProtectedRoute.jsx";
 import AppLayout from "./Layouts/Applayout.jsx";
+import AddProject from "./pages/ADDPROJECT.jsx";
+import Users from "./pages/USERS.jsx";
 
 function App() {
   return (
@@ -37,6 +39,8 @@ function App() {
         <Route element={<AppLayout />}>
           <Route path="/admin" element={<AdminDashboard />} />
           <Route path="/admin/add-task" element={<AddTask />} />
+          <Route path="/admin/add-project" element={<AddProject />} />
+          <Route path="/admin/users" element={<Users />} />
         </Route>
       </Route>
     </Routes>
