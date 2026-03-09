@@ -1,4 +1,4 @@
-# WorkZen — MERN Task Distribution & Project Management Platform
+# WorkZen
 
 WorkZen is a **full-stack team task distribution system** built with the **MERN stack (MongoDB, Express, React, Node.js)**.
 
