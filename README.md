@@ -212,10 +212,7 @@ Name: **ANSH KHARE**
 GitHub:  
 https://github.com/ansh35
 
-LinkedIn: [-](https://www.linkedin.com/in/ansh-khare-4019a53aa/)
-
 ---
-
 # License
 
 This project is licensed under the MIT License.
