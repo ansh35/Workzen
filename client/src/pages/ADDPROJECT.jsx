@@ -1,5 +1,5 @@
 import { useState } from "react";
-import axios from "axios";
+import axios from "../api/Axios";
 
 function AddProject() {
   const [title, setTitle] = useState("");
@@ -16,11 +16,11 @@ function AddProject() {
 
     try {
       await axios.post(
-        "http://localhost:5000/api/projects",
+        "api/projects",
         { title, description },
         {
           headers: { Authorization: `Bearer ${token}` },
-        }
+        },
       );
 
       alert("Project created successfully");

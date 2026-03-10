@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import axios from "axios";
+import axios from "../api/Axios";
 
 function Users() {
   const [users, setUsers] = useState([]);
@@ -11,7 +11,7 @@ function Users() {
     const fetchUsers = async () => {
       try {
         const res = await axios.get(
-          "http://localhost:5000/api/users",
+          "api/users",
           {
             headers: { Authorization: `Bearer ${token}` },
           }

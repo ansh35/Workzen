@@ -1,8 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
-import {motion} from 'framer-motion';
-
+import axios from "../api/Axios";
+import { motion } from "framer-motion";
 
 function Register() {
   const navigate = useNavigate();
@@ -21,14 +20,15 @@ function Register() {
     setLoading(true);
 
     try {
-      await axios.post("http://localhost:5000/api/auth/register", {
+      await axios.post("api/auth/register", {
         name,
         email,
         password,
         role,
       });
-      setTimeout(() =>{
-      navigate("/login");},800);
+      setTimeout(() => {
+        navigate("/login");
+      }, 800);
     } catch (err) {
       setError(err.response?.data?.message || "Registration failed");
     } finally {
@@ -38,7 +38,6 @@ function Register() {
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-black text-white relative overflow-hidden">
-      
       {/* background */}
       <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-black to-gray-900 opacity-90" />
 
@@ -78,7 +77,6 @@ function Register() {
         )}
 
         <form onSubmit={handleSubmit} className="space-y-4">
-          
           {/* name */}
           <motion.input
             whileFocus={{ scale: 1.03 }}
@@ -145,7 +143,6 @@ function Register() {
       </motion.div>
     </div>
   );
-;
 }
 
 export default Register;
