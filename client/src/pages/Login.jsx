@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "../api/Axios";
-import AuthLayout from "../layouts/AuthLayout";
-import { useAuth } from "../context/AuthContext";
+import AuthLayout from "../layouts/AuthLayout.jsx";
+import { useAuth } from "../context/AuthContext.jsx";
 
 function Login() {
   const { login } = useAuth();
