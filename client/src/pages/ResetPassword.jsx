@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import axios from "../api/Axios";
-import AuthLayout from "../layouts/AuthLayout";
+import AuthLayout from "../Layouts/AuthLayout";
 
 function ResetPassword() {
   const { token } = useParams();
@@ -28,10 +28,7 @@ function ResetPassword() {
     try {
       setLoading(true);
 
-      await axios.post(
-        `api/auth/reset-password/${token}`,
-        { password }
-      );
+      await axios.post(`api/auth/reset-password/${token}`, { password });
 
       setSuccess("Password reset successful. Redirecting...");
       setTimeout(() => navigate("/login"), 2000);
@@ -44,18 +41,14 @@ function ResetPassword() {
 
   return (
     <AuthLayout>
-      <h2 className="text-xl font-semibold text-center mb-4">
-        Reset Password
-      </h2>
+      <h2 className="text-xl font-semibold text-center mb-4">Reset Password</h2>
 
       {error && (
         <p className="text-red-500 text-sm text-center mb-3">{error}</p>
       )}
 
       {success && (
-        <p className="text-green-500 text-sm text-center mb-3">
-          {success}
-        </p>
+        <p className="text-green-500 text-sm text-center mb-3">{success}</p>
       )}
 
       <form onSubmit={handleSubmit} className="space-y-4">
