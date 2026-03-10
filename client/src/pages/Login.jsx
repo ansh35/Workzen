@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "../api/Axios";
-import AuthLayout from "../layouts/AuthLayout.jsx";
-import { useAuth } from "../context/AuthContext.jsx";
+import AuthLayout from "../Layouts/AuthLayout";
+import { useAuth } from "../context/AuthContext";
 
 function Login() {
   const { login } = useAuth();
@@ -20,10 +20,7 @@ function Login() {
     setLoading(true);
 
     try {
-      const res = await axios.post(
-        "api/auth/login",
-        { email, password }
-      );
+      const res = await axios.post("api/auth/login", { email, password });
 
       login(res.data.token, res.data.user);
 
@@ -54,9 +51,7 @@ function Login() {
       </div>
 
       {error && (
-        <p className="text-red-400 text-sm text-center mb-4">
-          {error}
-        </p>
+        <p className="text-red-400 text-sm text-center mb-4">{error}</p>
       )}
 
       {/* form */}
