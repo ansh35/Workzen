@@ -1,7 +1,7 @@
 import api from "./Axios";
 
 export const getTasksByProject = async (projectId) => {
-  const res = await api.get(`/tasks/project/${projectId.trim()}`);
+  const res = await api.get(`api/tasks/project/${projectId.trim()}`);
   return res.data;
 };
 
