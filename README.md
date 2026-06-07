@@ -10,7 +10,7 @@ The system implements **secure authentication, role-based permissions, REST APIs
 
 # Live Demo
 
-*Later After Deployment*
+https://workzen-navy.vercel.app
 
 ---
 
